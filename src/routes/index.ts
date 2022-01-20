@@ -4,21 +4,14 @@ import { SignUpRoutes } from '../api-services/auth/signup/routes'
 import { RefreshTokenRoutes } from '../api-services/auth/refreshToken/routes'
 import { UsersRoutes } from '../api-services/users/routes'
 
-const Root = (req: Request, res:Response) => {
-  return res.status(204).json({
-    message: 'Redirect to',
-    routes: ['/api/signin', '/api/signup', '/api/users']
-  })
-}
-
 const NotFound = (req: Request, res: Response) => {
-  res.status(204).json({
+  return res.status(404).send({
     message: 'Root not found please go to /api route'
   })
 }
 
 const HandleErrors = (req: Request, res: Response) => {
-  return res.status(500).json({
+  return res.status(500).send({
     message: 'Error Server'
   })
 }
@@ -28,7 +21,6 @@ export {
   SignInRoutes,
   RefreshTokenRoutes,
   UsersRoutes,
-  Root,
   NotFound,
   HandleErrors
 }

@@ -7,7 +7,6 @@ import { config } from './config'
 import {
   HandleErrors,
   NotFound,
-  Root,
   SignInRoutes,
   SignUpRoutes,
   RefreshTokenRoutes,
@@ -27,7 +26,6 @@ server.use('/api', SignInRoutes)
 server.use('/api', SignUpRoutes)
 server.use('/api', RefreshTokenRoutes)
 server.use('/api', UsersRoutes)
-server.use(Root)
 server.use(NotFound)
 server.use(HandleErrors)
 
