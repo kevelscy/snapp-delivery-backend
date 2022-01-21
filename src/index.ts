@@ -5,7 +5,7 @@
 // })
 
 import express from 'express'
-// import morgan from 'morgan'
+import morgan from 'morgan'
 // import cors from 'cors'
 import dotenv from 'dotenv'
 import { config } from './config'
@@ -31,9 +31,9 @@ const RootRouter = router.get('/', (req, res) => {
 
 server.set('PORT', process.env.PORT || config.PORT)
 
-// server.use(express.urlencoded({ extended: false }));
-// server.use(express.json())
-// server.use(morgan('dev'))
+server.use(express.urlencoded({ extended: false }));
+server.use(express.json())
+server.use(morgan('dev'))
 // server.use(cors())
 
 server.use('/api', SignInRoutes)
