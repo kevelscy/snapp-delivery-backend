@@ -1,9 +1,11 @@
 import express from 'express'
 import morgan from 'morgan'
 import cors from 'cors'
-import 'dotenv/config'
-import { config } from './config'
+import dotenv from 'dotenv'
 
+dotenv.config()
+
+import { config } from './config'
 import {
   HandleErrors,
   NotFound,
