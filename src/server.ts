@@ -1,5 +1,4 @@
 import express from 'express'
-import morgan from 'morgan'
 import cors from 'cors'
 import dotenv from 'dotenv'
 
@@ -21,7 +20,6 @@ server.set('PORT', process.env.PORT || config.PORT)
 
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json())
-server.use(morgan('dev'))
 server.use(cors())
 
 server.use('/api', SignInRoutes)
