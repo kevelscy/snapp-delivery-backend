@@ -5,9 +5,10 @@
 // })
 
 import express from 'express'
-import morgan from 'morgan'
-import cors from 'cors'
+// import morgan from 'morgan'
+// import cors from 'cors'
 import dotenv from 'dotenv'
+import { config } from './config'
 import {
   HandleErrors,
   NotFound,
@@ -28,10 +29,12 @@ const RootRouter = router.get('/', (req, res) => {
   })
 })
 
-server.use(express.urlencoded({ extended: false }));
-server.use(express.json())
-server.use(morgan('dev'))
-server.use(cors())
+server.set('PORT', process.env.PORT || config.PORT)
+
+// server.use(express.urlencoded({ extended: false }));
+// server.use(express.json())
+// server.use(morgan('dev'))
+// server.use(cors())
 
 server.use('/api', SignInRoutes)
 server.use('/api', SignUpRoutes)
@@ -41,6 +44,6 @@ server.use(RootRouter)
 server.use(NotFound)
 server.use(HandleErrors)
 
-server.listen(process.env.PORT || 4000, () => {
-  console.log('Listeting in the port' + process.env.PORT || 4000)
+server.listen(server.get('PORT'), () => {
+  console.log(`Listeting in the port ${server.get('PORT')}`)
 })
