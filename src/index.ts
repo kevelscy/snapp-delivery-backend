@@ -5,7 +5,7 @@
 // })
 
 import express from 'express'
-import morgan from 'morgan'
+// import morgan from 'morgan'
 // import cors from 'cors'
 import dotenv from 'dotenv'
 import { config } from './config'
@@ -24,7 +24,7 @@ dotenv.config()
 
 const RootRouter = router.get('/', (req, res) => {
   return res.status(200).json({
-    data: 'epale',
+    data: 'epale 2',
     error: null
   })
 })
@@ -33,7 +33,7 @@ server.set('PORT', process.env.PORT || config.PORT)
 
 server.use(express.urlencoded({ extended: false }));
 server.use(express.json())
-server.use(morgan('dev'))
+// server.use(morgan('dev'))
 // server.use(cors())
 
 server.use('/api', SignInRoutes)
