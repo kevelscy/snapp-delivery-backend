@@ -7,13 +7,13 @@
 import express from 'express'
 const server = express()
 
-server.use('/', (req, res) => {
+server.get('/', (req, res) => {
   return res.status(200).json({
     data: 'Epale',
     error: null
   })
 })
 
-server.listen(4000, () => {
+server.listen(process.env.PORT || 4000, () => {
   console.log('Listening in the port 4000')
 })
