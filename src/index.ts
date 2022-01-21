@@ -5,6 +5,8 @@
 // })
 
 import express from 'express'
+import morgan from 'morgan'
+import cors from 'cors'
 import dotenv from 'dotenv'
 import {
   HandleErrors,
@@ -25,6 +27,11 @@ const RootRouter = router.get('/', (req, res) => {
     error: null
   })
 })
+
+server.use(express.urlencoded({ extended: false }));
+server.use(express.json())
+server.use(morgan('dev'))
+server.use(cors())
 
 server.use('/api', SignInRoutes)
 server.use('/api', SignUpRoutes)
