@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Snap Delivery - Backend",
   "main": "index.js",
-  "type": "commonjs",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "rimraf ./dist && tsc-watch --onSuccess \"node dist/index.js\"",
